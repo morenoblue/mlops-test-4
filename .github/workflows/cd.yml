@@ -1,8 +1,11 @@
-name: CD (train→staging→prod canary)
+name: CD
+run-name: "${{ github.workflow }}"
+
+permissions: write-all
 
 on:
   workflow_run:
-    workflows: ["CI (build+smoke+push)"]
+    workflows: ["CI"]
     types: [completed]
 
 jobs:
